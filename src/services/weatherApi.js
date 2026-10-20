@@ -13,16 +13,35 @@ export async function getWeatherByCity(city) {
 
   const { latitude, longitude, name, country } = place;
 
-  const weatherRes = await fetch(
-    `${FORECAST_URL}?latitude=${latitude}&longitude=${longitude}&current_weather=true&wind_speed_unit=ms`,
-    );
+  const params = new URLSearchParams({
+    latitude,
+    longitude,
+    current:
+      "temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m",
+    daily: "weather_code,temperature_2m_max,temperature_2m_min",
+    wind_speed_unit: "ms",
+    timezone: "auto",
+  });
+
+  const weatherRes = await fetch(`${FORECAST_URL}?${params}`);
   if (!weatherRes.ok) throw new Error("Weather request failed");
 
-  const weatherData = await weatherRes.json();
+  const data = await weatherRes.json();
 
   return {
     place: country ? `${name}, ${country}` : name,
-    temperature: weatherData.current_weather.temperature,
-    windspeed: weatherData.current_weather.windspeed,
+    current: {
+      temperature: data.current.temperature_2m,
+      feelsLike: data.current.apparent_temperature,
+      humidity: data.current.relative_humidity_2m,
+      windSpeed: data.current.wind_speed_10m,
+      code: data.current.weather_code,
+    },
+    daily: data.daily.time.map((date, i) => ({
+      date,
+      code: data.daily.weather_code[i],
+      max: data.daily.temperature_2m_max[i],
+      min: data.daily.temperature_2m_min[i],
+    })),
   };
 }

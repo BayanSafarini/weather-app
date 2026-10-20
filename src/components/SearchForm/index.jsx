@@ -14,7 +14,7 @@ function SearchForm({ onSearch, loading }) {
       <input
         className="search-form__input"
         type="text"
-        placeholder="Enter City"
+        placeholder="Enter city name..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
       />

@@ -1,0 +1,43 @@
+.forecast {
+  padding: 32px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 80px;
+}
+
+.forecast__title {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+}
+
+.forecast__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.forecast__day {
+  padding: 16px 8px;
+  border-radius: 12px;
+  background: var(--color-bg);
+  text-align: center;
+}
+
+.forecast__name {
+  font-weight: 600;
+}
+
+.forecast__icon {
+  display: block;
+  margin: 8px 0;
+  font-size: 2rem;
+}
+
+.forecast__max {
+  font-weight: 700;
+}
+
+.forecast__min {
+  color: var(--color-muted);
+}

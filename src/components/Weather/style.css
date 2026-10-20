@@ -1,18 +1,41 @@
 .weather {
-  width: 320px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 24px;
-  margin: 40px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1;
 }
 
-.weather__title {
-  margin: 0 0 16px;
-  font-size: 1.5rem;
+.hero {
+  padding: 72px 0 80px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb 60%, #4f46e5);
+  color: white;
   text-align: center;
 }
 
-.weather__error {
-  color: crimson;
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero__subtitle {
+  max-width: 520px;
+  margin: 0 auto 32px;
+  opacity: 0.9;
+}
+
+.hero__status {
+  margin-top: 16px;
+}
+
+.hero__status--error {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.weather__results {
+  display: grid;
+  gap: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }

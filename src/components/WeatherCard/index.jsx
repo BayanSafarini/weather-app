@@ -1,14 +1,24 @@
+import { describeWeather } from "../../utils/weatherCodes";
 import "./style.css";
 
-function WeatherCard({ weather }) {
-  const { place, temperature, windspeed } = weather;
+function WeatherCard({ place, current }) {
+  const { label, icon } = describeWeather(current.code);
 
   return (
-    <div className="weather-card">
-      <h2 className="weather-card__place">{place}</h2>
-      <p>Temperature: {temperature}°C</p>
-      <p>Wind Speed: {windspeed} m/s</p>
-    </div>
+    <section className="weather-card" id="current">
+      <div>
+        <p className="weather-card__label">Current weather</p>
+        <h2 className="weather-card__place">{place}</h2>
+        <p className="weather-card__condition">{label}</p>
+      </div>
+
+      <div className="weather-card__temp">
+        <span className="weather-card__icon" aria-hidden="true">
+          {icon}
+        </span>
+        <span>{Math.round(current.temperature)}°C</span>
+      </div>
+    </section>
   );
 }
 
