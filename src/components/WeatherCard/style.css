@@ -1,0 +1,8 @@
+.weather-card {
+  margin-top: 16px;
+}
+
+.weather-card__place {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}

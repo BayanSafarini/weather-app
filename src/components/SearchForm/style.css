@@ -1,0 +1,26 @@
+.search-form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-form__input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.search-form__button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.search-form__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
