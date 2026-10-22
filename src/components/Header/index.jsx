@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <a className="header__logo" href="/">
+        <a className="header__logo" href={import.meta.env.BASE_URL}>
           🌤️ SkyCast
         </a>
         <nav className="header__nav">
